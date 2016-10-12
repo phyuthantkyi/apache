@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'paperclip', "~> 5.1.0"
 group :development, :test do
   gem 'byebug', platform: :mri
 end
@@ -24,11 +25,13 @@ gem 'devise'
 gem 'foundation-rails', '~> 5.5'
 gem 'high_voltage'
 gem 'hiredis'
+gem 'rmagick'
 gem 'mini_magick'
 gem 'mysql2', '~> 0.3.18'
 gem 'redis'
 gem 'rolify'
 gem 'simple_form'
+gem 'kaminari'
 gem 'will_paginate'
 group :development do
   gem 'better_errors'

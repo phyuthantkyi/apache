@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<!-- to fix sub div to parent div -->
+<div class="row" style="position: relative;">
+<!-- to create panel in my app -->
+  <div class="panel panel-default" style="width: 350px">
+    <div class="pannel-body">
+<p>
+<!-- image tag to display in show page -->
+ <%= image_tag @product.image.full_size.url %>
+</p>
+　　
+<div class="des">
+<p>
+  <%= word_wrap(@product.description, :line_width => 10) %>
+</p>
+</div>
+</div>
+</div>
+  <div style="width: 350px">
+    <div class="border">
+       <strong>Product_Name:</strong>
+       <%= @product.name %>
+     </div>
+     <div class="border">
+       <strong>Price:</strong>
+       <%= @product.price %>
+     </div>
+     <div class="border">
+      <strong>Size:</strong>
+      <%= select_tag @product, options_for_select([['S',1],['M',2],['L',3]],1), :style => 'width: 35px' %>
+    </div>
+  </div>
+  <br>
+<!-- display as a table with spectific border styles to make buttons positions -->
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 250px; display: table-cell;">
+        <%= button_to 'Add to Cart', new_product_path, :class => "button", :method => :get %> </div>
+        <div style="display: table-cell;">
+        <%= button_to 'Back', products_path, :class => "button", :method => :get %></div>
+    </div>
+</div>
+</div>

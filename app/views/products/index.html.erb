@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+ <% if current_user.try(:admin?) %>
+ <div style= "float: right"><%= button_to 'New Product', new_product_path, :class => "button", :method => :get %>
+ <% end %>
+ </div>
+
+ <div id="products" class="row" data-hook style="padding: 50px; position: relative; ">
+    <% @products.each do |product| %>
+    <!-- panel side by side in foundation grid -->
+     <div class="small-3 columns" >
+     <div class="panel panel-defaul" style="width: 200px">
+
+        <div class="panel-body text-center product-body">
+          <!-- image tag to display image in page -->
+        <%= image_tag(product.image.full_size.url) unless product.image.blank? %>
+      </div>
+    <br>
+    <div class="line" style="padding-top: 20px">
+    <div class="panel-footer text-center">
+        <%= product.name %><br>
+
+        <%= product.price %><br>
+
+        <%= link_to 'Show', product %>
+        <% if current_user.try(:admin?) %>
+        <%= link_to 'Edit', edit_product_path(product) %>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+　　　　　<% end %>
+     </div>
+   </div>
+     </div>
+  </div>
+      <% end %>
+
+     <br>
+     <div style="padding-left: 240px; position: static; padding-top: 500px;">
+       <%= will_paginate @collection %>
+     </div>
+</div>
