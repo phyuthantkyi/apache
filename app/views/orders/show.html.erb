@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<div class='left' style="padding-left: 100px;">
+  <div class='left' style="text-align: left;">Name:
+    <br>
+    Address:
+    <br>
+    <br>
+    <br>
+    Phone:
+  </div>
+  <div class='right' style="text-align: left;"><%= @order.user.name %>
+  <br>
+  <%= @order.address %>
+  <br>
+  <%= @order.address1 %>
+  <br>
+  <%= @order.address2 %>
+  <br>
+  <%= @order.phone %>
+ </div>
+ </div>
+<div class='right' style="padding-right: 100px;">
+  <div class='left' style="text-align: left;">Email:
+  <br>
+  Ordered at:
+  </div>
+  <div class='right' style="text-align: left;"><%= @order.user.email%>
+  <br>
+  <%= @order.updated_at %>
+  </div>
+</div>
+<p></p>
+<hr>
+<table style="width: 100%;">
+
+    <thead style="background-color: grey;">
+      <td>Products</td>
+      <td>Qty</td>
+      <td>Price</td>
+      <td>Total</td>
+    </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @order.product.name %></td>
+      <td><%#= @order.product.qty  %></td>
+      <td><%= @order.product.price %></td>
+      <td><%#= (@order.product.qty.to_i * @order.product.price.to_i) %></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @users = User.where('name LIKE ?', "%#{params[:email]}%")
   end
 
   def show
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def secure_params
-    params.require(:user).permit(:role)
+    params.require(:user).permit(:role, :name)
   end
 
 end

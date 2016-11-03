@@ -1,6 +1,13 @@
 <div class="container">
   <div class="row">
     <h3>Users</h3>
+
+    <div class="input-group" style="width: 200px;">
+     <%= form_tag users_path, method: :get, id: "search-form" do %>
+     <%= text_field_tag :email , params[:email], placeholder: "Search Users", class: 'form-control' %>
+     <% end %>
+    </div>
+
     <div class="column">
       <table class="table">
         <tbody>
