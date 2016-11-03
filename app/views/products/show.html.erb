@@ -28,6 +28,8 @@
      <div class="border">
       <strong>Size:</strong>
       <%= select_tag @product, options_for_select([['S',1],['M',2],['L',3]],1), :style => 'width: 35px' %>
+      <strong>Quantity:</strong>
+      <%= text_field_tag :qty %>
     </div>
   </div>
   <br>

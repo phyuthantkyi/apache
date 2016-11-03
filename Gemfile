@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'paperclip', "~> 5.1.0"
+gem 'ransack'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
@@ -30,9 +31,11 @@ gem 'mini_magick'
 gem 'mysql2', '~> 0.3.18'
 gem 'redis'
 gem 'rolify'
+gem 'actionmailer'
 gem 'simple_form'
 gem 'kaminari'
 gem 'will_paginate'
+gem 'sinatra', github: 'sinatra'
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
