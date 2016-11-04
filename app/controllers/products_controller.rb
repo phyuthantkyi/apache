@@ -6,8 +6,10 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
-    @products = Product.where('name LIKE ?', "%#{params[:search]}%").paginate(:page => params[:page], :per_page => 8)
+    @search = Product.search(params[:q])
+    @products = @search.result.paginate(:page => params[:page], :per_page => 8)
+    #@products = Product.all
+    ###@products = Product.where('name LIKE ? && price LIKE ?' , "%#{params[:name]}%", "%#{params[:price]}%").paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /products/1
