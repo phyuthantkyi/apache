@@ -54,7 +54,8 @@
         <%= link_to 'Show', product %>
         <% if current_user.try(:admin?) %>
         <%= link_to 'Edit', edit_product_path(product) %>
-        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= button_to 'Stock' %>
 　　　　　<% end %>
      </div>
    </div>
@@ -63,7 +64,7 @@
       <% end %>
 
      <br>
-     <div style="padding-left: 240px; position: static; padding-top: 500px;">
-       <%= will_paginate @collection %>
-     </div>
+     <!-- <div style="padding-left: 240px; position: static; padding-top: 500px;">
+       <%#= will_paginate @collection %>
+     </div> -->
 </div>

@@ -1,0 +1,22 @@
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs" style="width: 500px;">
+    <%= f.label :Name %>
+    <%= collection_select(:order, :user_id, User.all, :id, :name, :prompt => 'Select User' ) %>
+    <%= f.label :Address %>
+    <%= f.text_field :address %>
+    <%= f.text_field :address1 %>
+    <%= f.text_field :address2 %>
+    <%= f.label :Phone %>
+    <%= f.text_field :phone %>
+    <%= f.label :Email %>
+    <%= collection_select(:order, :user_id, User.all, :id, :email, :prompt => 'Select Email') %>
+    <%= f.label :Products %>
+    <%= collection_select(:order, :product_id, Product.all, :id, :name, :prompt => 'Select Product') %>
+</div>
+
+<div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

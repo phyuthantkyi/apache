@@ -1,0 +1,11 @@
+<%= simple_form_for @product do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+   <%= f.input :stock, :input_html => {:style => 'width: 500px'} %>
+ </div>
+
+ <div class="form-actions">
+   <%= f.button :submit %>
+ </div>
+<% end %>

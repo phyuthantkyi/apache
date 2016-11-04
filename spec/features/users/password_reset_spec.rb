@@ -17,12 +17,19 @@ feature 'Password reset', :devise do
   #   Then I should see an account deleted message
   scenario 'user can reset his password' do
     user = FactoryGirl.create(:user)
-    visit new_user_session_path
+    visit new_user_session_url
     click_on 'Forgot password?'
-    visit new_user_password_path
     fill_in 'Email', :with => user.email
-    click_button 'Reset Password'
-    redirect new_user_session_path
+    click_on 'Reset Password'
     expect(page).to have_content I18n.t 'devise.passwords.send_instructions'
+  end
+
+  scenario 'user cannot reset password if he did not sign_up' do
+    user = FactoryGirl.create(:user)
+    visit new_user_session_url
+    click_on 'Forgot password?'
+    fill_in 'Email', :with => "gg@invalid.com"
+    click_on 'Reset Password'
+    expect(page).to have_content I18n.t 'errors.messages.not_saved.one', resource: 'user'
   end
 end
