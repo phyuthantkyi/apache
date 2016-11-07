@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   def index
     @search = Product.search(params[:q])
     @products = @search.result.paginate(:page => params[:page], :per_page => 8)
+    #@search.build_condition
     #@products = Product.all
     ###@products = Product.where('name LIKE ? && price LIKE ?' , "%#{params[:name]}%", "%#{params[:price]}%").paginate(:page => params[:page], :per_page => 8)
   end

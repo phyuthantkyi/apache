@@ -2,6 +2,9 @@
 
 <h1>Orders</h1>
 
+<div style= "float: right"><%= button_to 'New Order', new_order_path, :class => "button round", :method => :get %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -27,7 +30,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
